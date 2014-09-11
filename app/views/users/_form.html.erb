@@ -1,4 +1,9 @@
 <head><script type="text/javascript" src="https://js.stripe.com/v2/"></script></head>
+<script type="text/javascript">
+  // This identifies your website in the createToken call below
+  Stripe.setPublishableKey('pk_test_6pRNASCoBOKtIshFeQd4XMUh');
+  // ...
+</script>
 <div class="row">
   <div class="span6 columns">
     <fieldset>
@@ -48,7 +53,7 @@
           <%= f.hidden_field :stripe_token %>
           <%= f.hidden_field :last_4_digits %>
         </div>
-/
+
 
         <noscript>
           <p>This form requires Javascript to use</p>
