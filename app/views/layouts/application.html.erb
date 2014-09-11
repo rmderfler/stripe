@@ -3,8 +3,13 @@
 <head>
   <title>Stripe</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'https://js.stripe.com/v2/', 'application', 'data-turbolinks-track' => true %>
+  <script type="text/javascript" src="https://js.stripe.com/v2/">
+
+     Stripe.setPublishableKey('pk_test_oaJaDZ9Fh8uVTvJGu8d219Jc');
+  </script>
   <%= csrf_meta_tags %>
+
 </head>
   <nav class="navbar navbar-inverse fixed navbar-custom" role="navigation">
     <div class="container">
@@ -12,7 +17,8 @@
         <% if current_user %>
           <li><%= link_to "Log out", logout_path %></li>
           <li><a>Logged in as <%= current_user.name %></a></li>
-          <li><%= link_to "Edit Profile", edit_user_path %></li>
+          <li><%= link_to "Make Donation", new_user_donation_path(current_user) %></li>
+          <li><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
         <% else %>
           <li><%= link_to "Sign Up", signup_path %></li>
           <li><%= link_to "Log In", login_path %></li>
@@ -24,6 +30,7 @@
   <div class="container">
     <%= flash[:notice] %>
     <%= yield %><br/>
+
   </div>
 </body>
 </html>

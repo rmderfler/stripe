@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/stripe/stripe-ruby
+  revision: 2c6f4caa99916c33d3f9af57f66422ff5ea913cf
+  specs:
+    stripe (1.15.0)
+      json (~> 1.8.1)
+      mime-types (>= 1.25, < 3.0)
+      rest-client (~> 1.4)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -69,6 +78,7 @@ GEM
     mini_portile (0.6.0)
     minitest (5.4.1)
     multi_json (1.10.1)
+    netrc (0.7.7)
     nokogiri (1.6.3.1)
       mini_portile (= 0.6.0)
     pg (0.17.1)
@@ -99,6 +109,9 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (10.3.2)
+    rest-client (1.7.2)
+      mime-types (>= 1.16, < 3.0)
+      netrc (~> 0.7)
     rspec-core (3.1.2)
       rspec-support (~> 3.1.0)
     rspec-expectations (3.1.0)
@@ -171,5 +184,6 @@ DEPENDENCIES
   shoulda-matchers
   simple_form
   sprockets
+  stripe!
   turbolinks
   uglifier

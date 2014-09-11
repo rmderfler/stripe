@@ -11,7 +11,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'simple_form'
 gem 'bcrypt'
-
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 group :production do
   gem 'rails_12factor'
