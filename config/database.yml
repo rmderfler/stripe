@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  database: stripe_development
+
+test:
+  adapter: postgresql
+  database: stripe_test
