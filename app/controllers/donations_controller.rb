@@ -1,5 +1,6 @@
 class DonationsController < ApplicationController
 
+
   def new
     @user = current_user
     @donation = Donation.new
@@ -8,9 +9,12 @@ class DonationsController < ApplicationController
   def create
     # Create the charge on Stripe's servers - this will charge the user's card
     @donation = Donation.new(donation_params)
-    #@donation.user_id = current_user.id
+    @donation.user_id = current_user.id
+
+    @donation.token = params[:stripeToken]
+
     if @donation.save
-      redirect_to user_path, notice: "Payment added!"
+      redirect_to user_path(current_user), notice: "Payment added!"
     else
       render 'new'
     end
@@ -18,6 +22,6 @@ class DonationsController < ApplicationController
 
 private
   def donation_params
-    params.require(:donation).permit(:amount, :stripeToken)
+    params.require(:donation).permit(:amount, :stripeToken, :currency)
   end
 end

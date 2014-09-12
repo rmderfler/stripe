@@ -1,7 +1,7 @@
 <head><script type="text/javascript" src="https://js.stripe.com/v2/"></script></head>
 <script type="text/javascript">
   // This identifies your website in the createToken call below
-  Stripe.setPublishableKey('pk_test_6pRNASCoBOKtIshFeQd4XMUh');
+  Stripe.setPublishableKey('sk_test_LIeCBTv3nCs4I35yzMthkk5f');
   // ...
 </script>
 <div class="row">
@@ -48,53 +48,16 @@
           <%= f.label :password_confirmation %>
           <div class="input">
             <%= f.password_field :password_confirmation, :class => "field" %>
-          </div>
-
-          <%= f.hidden_field :stripe_token %>
-          <%= f.hidden_field :last_4_digits %>
         </div>
 
-
-        <noscript>
-          <p>This form requires Javascript to use</p>
-        </noscript>
-
-        <div id="credit-card" style="<%= user.last_4_digits ? "display:none" : "display:block" %>">
-          <div id="credit-card-errors" style="display:none">
-            <div id="stripe-error-message" class="alert-message block-message error">
-            </div>
-          </div>
-
-          <!-- these fields are disabled before submission and are never transmitted back to rails -->
-          <div class="clearfix">
-            <%= label_tag :credit_card_number %>
-            <div class="input">
-              <%= text_field_tag :credit_card_number, params[:credit_card_number], :class => "field", :disabled => false %>
-            </div>
-          </div>
-
-          <div class="clearfix">
-            <%= label_tag :cvv, "Security code (CVV)" %>
-            <div class="input">
-              <%= text_field_tag :cvv, params[:cvv], :class => "small", :disabled => false %>
-            </div>
-          </div>
-
-          <div class="clearfix">
-            <%= label_tag :expiry_date %>
-            <div class="input">
-              <%= date_select "", :expiry_date, {:discard_day => true, :order => [:month, :year], :use_month_numbers => true, :start_year => Date.today.year, :end_year => Date.today.year + 25, :disabled => false}, {:class => "small"} %>
-            </div>
-            <!-- empty -->
-          </div>
-          <span class="note">
-            Your credit card details will be sent directly to our payment processor
-          </span>
+          <%= f.hidden_field :stripe_token %>
         </div>
 
         <div class="actions">
-          <%= f.submit((defined?(editing) ? "Update" : "Register"), :class => "btn primary") %>
+          <%= f.submit(:class => "btn btn-success") %>
         </div>
+
+
       <% end %>
     </fieldset>
   </div>
